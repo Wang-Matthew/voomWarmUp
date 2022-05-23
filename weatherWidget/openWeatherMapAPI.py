@@ -17,6 +17,8 @@ api_key = "75ac6a16b870a9dff9cb29020876dcd0"
 base_url = "http://api.openweathermap.org/data/2.5/weather?"
 
 # function to call from hell
+
+
 def return_weather(city_name):
     start_time = time.perf_counter()
     # complete_url variable to store
@@ -64,22 +66,10 @@ def return_weather(city_name):
         weather_description = z[0]["description"]
         request_time = time.perf_counter() - start_time
 
+        # return array of weather info in this order: [city name, temp in fahrenheit, atmospheric pressure, humdity in percentage, weather description,  response time, query time]
 
-
-        # return following values
-        return(" Weather in "  + city_name +
-              ". Temperature (in Fahrenheit) = " +
-              str(round((1.8 * (current_temperature - 273) + 32), 2)) +
-              "\n atmospheric pressure (in hPa unit) = " +
-              str(current_pressure) +
-              "\n humidity (in percentage) = " +
-              str(current_humidity) +
-              "\n description = " +
-              str(weather_description) +
-               " response time = " +
-              str(round(request_time, 3)) + " seconds" +
-               ". query time = " + datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
-
+        return([city_name, str(round((1.8 * (current_temperature - 273) + 32), 2)), str(current_pressure),
+               str(current_humidity), str(weather_description), str(round(request_time, 3)), datetime.now().strftime("%d/%m/%Y %H:%M:%S")])
 
     else:
         return(" City Not Found ")

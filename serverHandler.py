@@ -3,20 +3,24 @@ import tornado.web
 from weatherWidget import openWeatherMapAPI
 
 # MainHandler class and make_app function are from Tornado doc
+
+
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write("Hello matt!")
+        self.write("Hello matt! Test")
 
 
 class queryStringRequestHandler(tornado.web.RequestHandler):
     def get(self):
         n = str(self.get_argument("n"))
         r = openWeatherMapAPI.return_weather(n)
-        self.write(r)
+        self.render("template.html", r=r)
+
 
 class blogRequestHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("serverHandler.html")
+
 
 if __name__ == "__main__":
     app = tornado.web.Application([
