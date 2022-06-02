@@ -5,6 +5,7 @@
 # using openweathermap api
 
 # import required modules
+from ast import Return
 import requests
 import json
 import time
@@ -56,6 +57,12 @@ def return_weather(city_name):
         # to the "humidity" key of y
         current_humidity = y["humidity"]
 
+        # wind speed
+        current_wind = x["wind"]["speed"]
+
+        # weather icon
+        current_icon = x["weather"][0]["icon"]
+
         # store the value of "weather"
         # key in variable z
         z = x["weather"]
@@ -66,10 +73,12 @@ def return_weather(city_name):
         weather_description = z[0]["description"]
         request_time = time.perf_counter() - start_time
 
-        # return array of weather info in this order: [city name, temp in fahrenheit, atmospheric pressure, humdity in percentage, weather description,  response time, query time]
+        # return array of weather info in this order: [city name, temp in fahrenheit, wind speed, humdity in percentage, weather description,  weather icon, response time, query time]
 
-        return([city_name, str(round((1.8 * (current_temperature - 273) + 32), 2)), str(current_pressure),
-               str(current_humidity), str(weather_description), str(round(request_time, 3)), datetime.now().strftime("%d/%m/%Y %H:%M:%S")])
+        return([city_name, str(round((1.8 * (current_temperature - 273) + 32), 2)), str(current_wind),
+               str(current_humidity), str(
+                   weather_description), "https://openweathermap.org/img/wn/" + str(current_icon) + ".png",
+                str(round(request_time, 3)), datetime.now().strftime("%d/%m/%Y %H:%M:%S")])
 
     else:
-        return(" City Not Found ")
+        return([" City Not Found "])

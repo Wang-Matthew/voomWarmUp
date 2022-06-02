@@ -38,15 +38,13 @@
         <!--{{r[0]}} calls the r array in openWeatherMapApi.py program. See that file for details on what is in the array-->
         <h1 class="temp">{{r[1]}}°F</h1>
         <div class="flex">
-          <img
-            src="https://openweathermap.org/img/wn/04n.png"
-            alt=""
-            class="icon"
-          />
+          <img src="{{r[5]}}" alt="" class="icon" />
           <div class="description">{{r[4].capitalize()}}</div>
         </div>
         <div class="humidity">Humidity: {{r[3]}}%</div>
         <div class="wind">Wind speed: {{r[2]}} m/sec</div>
+        <div class="response time">Response time: {{r[6]}} secs</div>
+        <div class="query time">Query time: {{r[7]}}</div>
       </div>
     </div>
   </body>
