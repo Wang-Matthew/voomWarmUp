@@ -16,7 +16,7 @@ class MainHandler(tornado.web.RequestHandler):
 # this is to handle the weather widget
 class queryStringRequestHandler(tornado.web.RequestHandler):
     def get(self):
-        n = str(self.get_argument("n"))
+        n = str(self.get_argument("n")).title()
         r = openWeatherMapAPI.return_weather(n)
         self.render("template.html", r=r)
 

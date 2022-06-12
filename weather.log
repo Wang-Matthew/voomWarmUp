@@ -1,0 +1,336 @@
+2022-06-11 18:51:58,136 Queried city: Tel Aviv - 91.17 - 3.6 - 29 - clear sky - https://openweathermap.org/img/wn/01d.png - 0.191
+2022-06-11 18:51:58,153 200 GET /city?n=Tel%20Aviv (127.0.0.1) 211.97ms
+2022-06-11 18:52:04,528 Queried city: Tel Aviv - 91.17 - 3.6 - 29 - clear sky - https://openweathermap.org/img/wn/01d.png - 0.226
+2022-06-11 18:52:04,530 200 GET /city?n=tel%20aviv (127.0.0.1) 228.84ms
+2022-06-11 18:52:13,750 Queried city: Boston - 74.61 - 1.54 - 50 - broken clouds - https://openweathermap.org/img/wn/04d.png - 0.168
+2022-06-11 18:52:13,753 200 GET /city?n=boston (127.0.0.1) 172.23ms
+2022-06-11 18:59:28,756 Queried city: Tel Aviv - 89.55 - 3.6 - 31 - clear sky - https://openweathermap.org/img/wn/01d.png - 3.332
+2022-06-11 18:59:28,773 200 GET /city?n=tel%20aviv (127.0.0.1) 3351.92ms
+2022-06-11 22:11:05,232 Queried city: Tel Aviv - 84.25 - 2.06 - 40 - clear sky - https://openweathermap.org/img/wn/01n.png - 0.352
+2022-06-11 22:11:05,246 200 GET /city?n=tel%20aviv (127.0.0.1) 369.87ms
+2022-06-11 22:11:05,401 404 GET /favicon.ico (127.0.0.1) 1.82ms
+2022-06-11 23:24:06,999 Queried city: Binghamton - 70.32 - 2.57 - 57 - overcast clouds - https://openweathermap.org/img/wn/04d.png - 0.538
+2022-06-11 23:24:07,015 200 GET /city?n=binghamton (127.0.0.1) 560.44ms
+2022-06-11 23:25:08,088 Queried city: Tel Aviv - 82.63 - 2.57 - 40 - clear sky - https://openweathermap.org/img/wn/01n.png - 0.178
+2022-06-11 23:25:08,093 200 GET /city?n=tel%20aviv (127.0.0.1) 184.03ms
+2022-06-12 00:42:53,110 Queried city: Tel Aviv - 82.63 - 1.54 - 36 - clear sky - https://openweathermap.org/img/wn/01n.png - 0.37
+2022-06-12 00:42:53,123 200 GET /city?n=tel%20aviv (127.0.0.1) 386.97ms
+2022-06-12 00:42:57,954 Queried city: Boston - 76.84 - 2.68 - 40 - broken clouds - https://openweathermap.org/img/wn/04d.png - 0.197
+2022-06-12 00:42:57,957 200 GET /city?n=boston (127.0.0.1) 200.59ms
+2022-06-12 00:44:10,009 Queried city: Boston - 76.84 - 2.68 - 40 - broken clouds - https://openweathermap.org/img/wn/04d.png - 0.205
+2022-06-12 00:44:40,040 Uncaught exception GET /city?n=boston (127.0.0.1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/city?n=boston', version='HTTP/1.1', remote_ip='127.0.0.1')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/tornado/web.py", line 1702, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "/Users/mattwang/voomWarmUp/serverHandler.py", line 20, in get
+    r = openWeatherMapAPI.return_weather(n)
+  File "/Users/mattwang/voomWarmUp/weatherWidget/openWeatherMapAPI.py", line 99, in return_weather
+    collection.insert_one(post)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/collection.py", line 606, in insert_one
+    self._insert_one(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/collection.py", line 547, in _insert_one
+    self.__database.client._retryable_write(acknowledged, _insert_command, session)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1398, in _retryable_write
+    with self._tmp_session(session) as s:
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1676, in _tmp_session
+    s = self._ensure_session(session)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1663, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1608, in __start_session
+    self._topology._check_implicit_session_support()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/topology.py", line 519, in _check_implicit_session_support
+    self._check_session_support()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/topology.py", line 535, in _check_session_support
+    self._select_servers_loop(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/topology.py", line 227, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: ac-tafnhax-shard-00-00.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997),ac-tafnhax-shard-00-01.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997),ac-tafnhax-shard-00-02.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997), Timeout: 30s, Topology Description: <TopologyDescription id: 62a50ca795f42de4cc17173b, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-tafnhax-shard-00-00.8blkad4.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-tafnhax-shard-00-00.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')>, <ServerDescription ('ac-tafnhax-shard-00-01.8blkad4.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-tafnhax-shard-00-01.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')>, <ServerDescription ('ac-tafnhax-shard-00-02.8blkad4.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-tafnhax-shard-00-02.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')>]>
+2022-06-12 00:44:40,052 500 GET /city?n=boston (127.0.0.1) 30251.24ms
+2022-06-12 00:44:40,240 Queried city: Boston - 76.84 - 2.68 - 40 - broken clouds - https://openweathermap.org/img/wn/04d.png - 0.181
+2022-06-12 00:45:10,282 Uncaught exception GET /city?n=boston (127.0.0.1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/city?n=boston', version='HTTP/1.1', remote_ip='127.0.0.1')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/tornado/web.py", line 1702, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "/Users/mattwang/voomWarmUp/serverHandler.py", line 20, in get
+    r = openWeatherMapAPI.return_weather(n)
+  File "/Users/mattwang/voomWarmUp/weatherWidget/openWeatherMapAPI.py", line 99, in return_weather
+    collection.insert_one(post)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/collection.py", line 606, in insert_one
+    self._insert_one(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/collection.py", line 547, in _insert_one
+    self.__database.client._retryable_write(acknowledged, _insert_command, session)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1398, in _retryable_write
+    with self._tmp_session(session) as s:
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1676, in _tmp_session
+    s = self._ensure_session(session)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1663, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1608, in __start_session
+    self._topology._check_implicit_session_support()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/topology.py", line 519, in _check_implicit_session_support
+    self._check_session_support()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/topology.py", line 535, in _check_session_support
+    self._select_servers_loop(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/topology.py", line 227, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: ac-tafnhax-shard-00-00.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997),ac-tafnhax-shard-00-01.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997),ac-tafnhax-shard-00-02.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997), Timeout: 30s, Topology Description: <TopologyDescription id: 62a50ca795f42de4cc17173b, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-tafnhax-shard-00-00.8blkad4.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-tafnhax-shard-00-00.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')>, <ServerDescription ('ac-tafnhax-shard-00-01.8blkad4.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-tafnhax-shard-00-01.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')>, <ServerDescription ('ac-tafnhax-shard-00-02.8blkad4.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-tafnhax-shard-00-02.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')>]>
+2022-06-12 00:45:10,286 500 GET /city?n=boston (127.0.0.1) 30230.05ms
+2022-06-12 00:45:10,437 Queried city: Boston - 76.84 - 2.68 - 40 - broken clouds - https://openweathermap.org/img/wn/04d.png - 0.15
+2022-06-12 00:45:40,511 Uncaught exception GET /city?n=boston (127.0.0.1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/city?n=boston', version='HTTP/1.1', remote_ip='127.0.0.1')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/tornado/web.py", line 1702, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "/Users/mattwang/voomWarmUp/serverHandler.py", line 20, in get
+    r = openWeatherMapAPI.return_weather(n)
+  File "/Users/mattwang/voomWarmUp/weatherWidget/openWeatherMapAPI.py", line 99, in return_weather
+    collection.insert_one(post)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/collection.py", line 606, in insert_one
+    self._insert_one(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/collection.py", line 547, in _insert_one
+    self.__database.client._retryable_write(acknowledged, _insert_command, session)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1398, in _retryable_write
+    with self._tmp_session(session) as s:
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1676, in _tmp_session
+    s = self._ensure_session(session)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1663, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1608, in __start_session
+    self._topology._check_implicit_session_support()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/topology.py", line 519, in _check_implicit_session_support
+    self._check_session_support()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/topology.py", line 535, in _check_session_support
+    self._select_servers_loop(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/topology.py", line 227, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: ac-tafnhax-shard-00-00.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997),ac-tafnhax-shard-00-01.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997),ac-tafnhax-shard-00-02.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997), Timeout: 30s, Topology Description: <TopologyDescription id: 62a50ca795f42de4cc17173b, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-tafnhax-shard-00-00.8blkad4.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-tafnhax-shard-00-00.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')>, <ServerDescription ('ac-tafnhax-shard-00-01.8blkad4.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-tafnhax-shard-00-01.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')>, <ServerDescription ('ac-tafnhax-shard-00-02.8blkad4.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-tafnhax-shard-00-02.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')>]>
+2022-06-12 00:45:40,515 500 GET /city?n=boston (127.0.0.1) 60457.15ms
+2022-06-12 00:45:53,263 Queried city: Boston - 76.84 - 2.68 - 40 - broken clouds - https://openweathermap.org/img/wn/04d.png - 0.193
+2022-06-12 00:46:23,350 Uncaught exception GET /city?n=boston (127.0.0.1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/city?n=boston', version='HTTP/1.1', remote_ip='127.0.0.1')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/tornado/web.py", line 1702, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "/Users/mattwang/voomWarmUp/serverHandler.py", line 20, in get
+    r = openWeatherMapAPI.return_weather(n)
+  File "/Users/mattwang/voomWarmUp/weatherWidget/openWeatherMapAPI.py", line 99, in return_weather
+    collection.insert_one(post)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/collection.py", line 606, in insert_one
+    self._insert_one(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/collection.py", line 547, in _insert_one
+    self.__database.client._retryable_write(acknowledged, _insert_command, session)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1398, in _retryable_write
+    with self._tmp_session(session) as s:
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1676, in _tmp_session
+    s = self._ensure_session(session)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1663, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1608, in __start_session
+    self._topology._check_implicit_session_support()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/topology.py", line 519, in _check_implicit_session_support
+    self._check_session_support()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/topology.py", line 535, in _check_session_support
+    self._select_servers_loop(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/topology.py", line 227, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: ac-tafnhax-shard-00-00.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997),ac-tafnhax-shard-00-02.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997),ac-tafnhax-shard-00-01.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997), Timeout: 30s, Topology Description: <TopologyDescription id: 62a50d11bcd5821aa0b46dcf, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-tafnhax-shard-00-00.8blkad4.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-tafnhax-shard-00-00.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')>, <ServerDescription ('ac-tafnhax-shard-00-01.8blkad4.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-tafnhax-shard-00-01.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')>, <ServerDescription ('ac-tafnhax-shard-00-02.8blkad4.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-tafnhax-shard-00-02.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')>]>
+2022-06-12 00:46:23,358 500 GET /city?n=boston (127.0.0.1) 30290.15ms
+2022-06-12 00:47:50,434 Queried city: Boston - 76.84 - 2.68 - 40 - broken clouds - https://openweathermap.org/img/wn/04d.png - 0.193
+2022-06-12 00:48:20,503 Uncaught exception GET /city?n=boston (127.0.0.1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/city?n=boston', version='HTTP/1.1', remote_ip='127.0.0.1')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/tornado/web.py", line 1702, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "/Users/mattwang/voomWarmUp/serverHandler.py", line 20, in get
+    r = openWeatherMapAPI.return_weather(n)
+  File "/Users/mattwang/voomWarmUp/weatherWidget/openWeatherMapAPI.py", line 102, in return_weather
+    collection.insert_one(test)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/collection.py", line 606, in insert_one
+    self._insert_one(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/collection.py", line 547, in _insert_one
+    self.__database.client._retryable_write(acknowledged, _insert_command, session)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1398, in _retryable_write
+    with self._tmp_session(session) as s:
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1676, in _tmp_session
+    s = self._ensure_session(session)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1663, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1608, in __start_session
+    self._topology._check_implicit_session_support()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/topology.py", line 519, in _check_implicit_session_support
+    self._check_session_support()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/topology.py", line 535, in _check_session_support
+    self._select_servers_loop(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/topology.py", line 227, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: ac-tafnhax-shard-00-00.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997),ac-tafnhax-shard-00-01.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997),ac-tafnhax-shard-00-02.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997), Timeout: 30s, Topology Description: <TopologyDescription id: 62a50d85c28385d4e14f1af2, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-tafnhax-shard-00-00.8blkad4.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-tafnhax-shard-00-00.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')>, <ServerDescription ('ac-tafnhax-shard-00-01.8blkad4.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-tafnhax-shard-00-01.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')>, <ServerDescription ('ac-tafnhax-shard-00-02.8blkad4.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-tafnhax-shard-00-02.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')>]>
+2022-06-12 00:48:20,516 500 GET /city?n=boston (127.0.0.1) 30276.83ms
+2022-06-12 00:48:20,821 404 GET /favicon.ico (127.0.0.1) 1.42ms
+2022-06-12 00:49:30,590 Queried city: Boston - 76.84 - 2.68 - 40 - broken clouds - https://openweathermap.org/img/wn/04d.png - 0.186
+2022-06-12 00:49:30,602 200 GET /city?n=boston (127.0.0.1) 200.40ms
+2022-06-12 00:49:30,646 200 GET /static/style.css?v=0231578549f24851e4ad6b3e25f25d484b2404488a37ac06c84ceb821a5640d44800e82a48c4fe960a453cd6f2e3f14090e665e365eb13f17f1acb701467e882 (127.0.0.1) 14.65ms
+2022-06-12 09:22:06,158 Queried city: Boston - 60.35 - 1.34 - 77 - scattered clouds - https://openweathermap.org/img/wn/03n.png - 0.221
+2022-06-12 09:22:06,172 200 GET /city?n=Boston (127.0.0.1) 238.71ms
+2022-06-12 09:22:13,694 Queried city: Tel Aviv - 80.78 - 2.57 - 72 - few clouds - https://openweathermap.org/img/wn/02d.png - 0.214
+2022-06-12 09:22:13,696 200 GET /city?n=tel%20aviv (127.0.0.1) 217.70ms
+2022-06-12 09:22:15,554 Queried city: Tel Aviv - 80.78 - 2.57 - 72 - few clouds - https://openweathermap.org/img/wn/02d.png - 0.162
+2022-06-12 09:22:15,556 200 GET /city?n=tel%20aviv (127.0.0.1) 165.17ms
+2022-06-12 09:28:53,765 Queried city: Tel Aviv - 80.78 - 2.57 - 72 - few clouds - https://openweathermap.org/img/wn/02d.png - 0.14
+2022-06-12 09:28:53,769 200 GET /city?n=tel%20aviv (127.0.0.1) 145.01ms
+2022-06-12 09:28:56,563 Queried city: Tel Aviv - 80.78 - 2.57 - 72 - few clouds - https://openweathermap.org/img/wn/02d.png - 0.161
+2022-06-12 09:28:56,566 200 GET /city?n=tel%20aviv (127.0.0.1) 164.50ms
+2022-06-12 09:30:16,563 Queried city: Tel Aviv - 80.78 - 2.57 - 72 - few clouds - https://openweathermap.org/img/wn/02d.png - 0.206
+2022-06-12 09:30:16,566 200 GET /city?n=tel%20aviv (127.0.0.1) 209.90ms
+2022-06-12 09:33:30,514 Queried city: Tel Aviv - 81.12 - 2.57 - 69 - few clouds - https://openweathermap.org/img/wn/02d.png - 0.207
+2022-06-12 09:33:30,528 200 GET /city?n=tel%20aviv (127.0.0.1) 224.36ms
+2022-06-12 09:52:32,779 Queried city: Tel Aviv - 82.17 - 2.57 - 66 - scattered clouds - https://openweathermap.org/img/wn/03d.png - 0.172
+2022-06-12 09:52:32,795 200 GET /city?n=tel%20aviv (127.0.0.1) 192.60ms
+2022-06-12 09:52:34,032 Queried city: Tel Aviv - 82.17 - 2.57 - 66 - scattered clouds - https://openweathermap.org/img/wn/03d.png - 0.164
+2022-06-12 09:52:34,034 200 GET /city?n=tel%20aviv (127.0.0.1) 166.11ms
+2022-06-12 09:54:52,678 Queried city: Tel Aviv - 82.17 - 2.57 - 66 - scattered clouds - https://openweathermap.org/img/wn/03d.png - 0.206
+2022-06-12 09:55:22,757 Uncaught exception GET /city?n=tel%20aviv (127.0.0.1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/city?n=tel%20aviv', version='HTTP/1.1', remote_ip='127.0.0.1')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/tornado/web.py", line 1702, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "/Users/mattwang/voomWarmUp/serverHandler.py", line 20, in get
+    r = openWeatherMapAPI.return_weather(n)
+  File "/Users/mattwang/voomWarmUp/weatherWidget/openWeatherMapAPI.py", line 102, in return_weather
+    print(collection.find_one())
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/collection.py", line 1419, in find_one
+    for result in cursor.limit(-1):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/cursor.py", line 1248, in next
+    if len(self.__data) or self._refresh():
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/cursor.py", line 1139, in _refresh
+    self.__session = self.__collection.database.client._ensure_session()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1663, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1608, in __start_session
+    self._topology._check_implicit_session_support()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/topology.py", line 519, in _check_implicit_session_support
+    self._check_session_support()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/topology.py", line 535, in _check_session_support
+    self._select_servers_loop(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/topology.py", line 227, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: ac-tafnhax-shard-00-00.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997),ac-tafnhax-shard-00-02.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997),ac-tafnhax-shard-00-01.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997), Timeout: 30s, Topology Description: <TopologyDescription id: 62a58db35c4ad17da77ec1a8, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-tafnhax-shard-00-00.8blkad4.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-tafnhax-shard-00-00.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')>, <ServerDescription ('ac-tafnhax-shard-00-01.8blkad4.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-tafnhax-shard-00-01.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')>, <ServerDescription ('ac-tafnhax-shard-00-02.8blkad4.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-tafnhax-shard-00-02.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')>]>
+2022-06-12 09:55:22,770 500 GET /city?n=tel%20aviv (127.0.0.1) 30300.35ms
+2022-06-12 09:55:32,532 Queried city: Tel Aviv - 82.17 - 2.57 - 67 - scattered clouds - https://openweathermap.org/img/wn/03d.png - 0.17
+2022-06-12 09:56:02,726 Uncaught exception GET /city?n=tel%20aviv (127.0.0.1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/city?n=tel%20aviv', version='HTTP/1.1', remote_ip='127.0.0.1')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/tornado/web.py", line 1702, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "/Users/mattwang/voomWarmUp/serverHandler.py", line 20, in get
+    r = openWeatherMapAPI.return_weather(n)
+  File "/Users/mattwang/voomWarmUp/weatherWidget/openWeatherMapAPI.py", line 102, in return_weather
+    # print(collection.find_one())
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/collection.py", line 1419, in find_one
+    for result in cursor.limit(-1):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/cursor.py", line 1248, in next
+    if len(self.__data) or self._refresh():
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/cursor.py", line 1139, in _refresh
+    self.__session = self.__collection.database.client._ensure_session()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1663, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1608, in __start_session
+    self._topology._check_implicit_session_support()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/topology.py", line 519, in _check_implicit_session_support
+    self._check_session_support()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/topology.py", line 535, in _check_session_support
+    self._select_servers_loop(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/topology.py", line 227, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: ac-tafnhax-shard-00-00.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997),ac-tafnhax-shard-00-02.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997),ac-tafnhax-shard-00-01.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997), Timeout: 30s, Topology Description: <TopologyDescription id: 62a58db35c4ad17da77ec1a8, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-tafnhax-shard-00-00.8blkad4.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-tafnhax-shard-00-00.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')>, <ServerDescription ('ac-tafnhax-shard-00-01.8blkad4.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-tafnhax-shard-00-01.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')>, <ServerDescription ('ac-tafnhax-shard-00-02.8blkad4.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-tafnhax-shard-00-02.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')>]>
+2022-06-12 09:56:02,732 500 GET /city?n=tel%20aviv (127.0.0.1) 30371.61ms
+2022-06-12 09:56:02,740 200 GET / (127.0.0.1) 3.36ms
+2022-06-12 09:57:11,041 304 GET / (127.0.0.1) 1.31ms
+2022-06-12 09:57:12,128 304 GET / (127.0.0.1) 1.10ms
+2022-06-12 09:57:23,192 Queried city: Tel Aviv - 82.17 - 2.57 - 67 - scattered clouds - https://openweathermap.org/img/wn/03d.png - 0.165
+2022-06-12 09:57:53,244 Uncaught exception GET /city?n=Tel%20Aviv (127.0.0.1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/city?n=Tel%20Aviv', version='HTTP/1.1', remote_ip='127.0.0.1')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/tornado/web.py", line 1702, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "/Users/mattwang/voomWarmUp/serverHandler.py", line 20, in get
+    r = openWeatherMapAPI.return_weather(n)
+  File "/Users/mattwang/voomWarmUp/weatherWidget/openWeatherMapAPI.py", line 102, in return_weather
+    # print(collection.find_one())
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/collection.py", line 1419, in find_one
+    for result in cursor.limit(-1):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/cursor.py", line 1248, in next
+    if len(self.__data) or self._refresh():
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/cursor.py", line 1139, in _refresh
+    self.__session = self.__collection.database.client._ensure_session()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1663, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1608, in __start_session
+    self._topology._check_implicit_session_support()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/topology.py", line 519, in _check_implicit_session_support
+    self._check_session_support()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/topology.py", line 535, in _check_session_support
+    self._select_servers_loop(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/topology.py", line 227, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: ac-tafnhax-shard-00-00.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997),ac-tafnhax-shard-00-02.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997),ac-tafnhax-shard-00-01.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997), Timeout: 30s, Topology Description: <TopologyDescription id: 62a58db35c4ad17da77ec1a8, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-tafnhax-shard-00-00.8blkad4.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-tafnhax-shard-00-00.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')>, <ServerDescription ('ac-tafnhax-shard-00-01.8blkad4.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-tafnhax-shard-00-01.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')>, <ServerDescription ('ac-tafnhax-shard-00-02.8blkad4.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-tafnhax-shard-00-02.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')>]>
+2022-06-12 09:57:53,247 500 GET /city?n=Tel%20Aviv (127.0.0.1) 30221.97ms
+2022-06-12 09:58:11,444 Queried city: Tel Aviv - 82.17 - 2.57 - 67 - scattered clouds - https://openweathermap.org/img/wn/03d.png - 0.173
+2022-06-12 09:58:41,719 Uncaught exception GET /city?n=Tel%20Aviv (127.0.0.1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/city?n=Tel%20Aviv', version='HTTP/1.1', remote_ip='127.0.0.1')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/tornado/web.py", line 1702, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "/Users/mattwang/voomWarmUp/serverHandler.py", line 20, in get
+    r = openWeatherMapAPI.return_weather(n)
+  File "/Users/mattwang/voomWarmUp/weatherWidget/openWeatherMapAPI.py", line 102, in return_weather
+    # print(collection.find_one())
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/collection.py", line 1419, in find_one
+    for result in cursor.limit(-1):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/cursor.py", line 1248, in next
+    if len(self.__data) or self._refresh():
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/cursor.py", line 1139, in _refresh
+    self.__session = self.__collection.database.client._ensure_session()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1663, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/mongo_client.py", line 1608, in __start_session
+    self._topology._check_implicit_session_support()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/topology.py", line 519, in _check_implicit_session_support
+    self._check_session_support()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/topology.py", line 535, in _check_session_support
+    self._select_servers_loop(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymongo/topology.py", line 227, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: ac-tafnhax-shard-00-00.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997),ac-tafnhax-shard-00-02.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997),ac-tafnhax-shard-00-01.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997), Timeout: 30s, Topology Description: <TopologyDescription id: 62a58db35c4ad17da77ec1a8, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-tafnhax-shard-00-00.8blkad4.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-tafnhax-shard-00-00.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')>, <ServerDescription ('ac-tafnhax-shard-00-01.8blkad4.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-tafnhax-shard-00-01.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')>, <ServerDescription ('ac-tafnhax-shard-00-02.8blkad4.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-tafnhax-shard-00-02.8blkad4.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')>]>
+2022-06-12 09:58:41,723 500 GET /city?n=Tel%20Aviv (127.0.0.1) 30453.30ms
+2022-06-12 10:29:26,583 Queried city: Tel Aviv - 83.53 - 4.12 - 67 - few clouds - https://openweathermap.org/img/wn/02d.png - 0.212
+2022-06-12 10:29:26,595 200 GET /city?n=Tel%20Aviv (127.0.0.1) 228.41ms
+2022-06-12 10:29:26,640 200 GET /static/style.css?v=0231578549f24851e4ad6b3e25f25d484b2404488a37ac06c84ceb821a5640d44800e82a48c4fe960a453cd6f2e3f14090e665e365eb13f17f1acb701467e882 (127.0.0.1) 14.62ms
+2022-06-12 10:30:12,327 Queried city: Tel Aviv - 83.53 - 4.12 - 67 - few clouds - https://openweathermap.org/img/wn/02d.png - 0.199
+2022-06-12 10:30:13,323 200 GET /city?n=Tel%20Aviv (127.0.0.1) 1198.43ms
+2022-06-12 10:31:00,378 Queried city: Tel Aviv - 83.53 - 4.12 - 67 - few clouds - https://openweathermap.org/img/wn/02d.png - 0.159
+2022-06-12 10:31:01,369 200 GET /city?n=Tel%20Aviv (127.0.0.1) 1154.54ms
+2022-06-12 10:31:06,740 Queried city: Boston - 58.55 - 0.89 - 81 - clear sky - https://openweathermap.org/img/wn/01n.png - 0.174
+2022-06-12 10:31:06,907 200 GET /city?n=Boston (127.0.0.1) 342.10ms
+2022-06-12 10:35:22,965 Queried city: Boston - 58.55 - 0.89 - 81 - clear sky - https://openweathermap.org/img/wn/01n.png - 0.191
+2022-06-12 10:35:23,955 200 GET /city?n=Boston (127.0.0.1) 1184.37ms
+2022-06-12 10:35:29,511 Queried city: Tel Aviv - 83.53 - 4.12 - 67 - few clouds - https://openweathermap.org/img/wn/02d.png - 0.172
+2022-06-12 10:35:29,676 200 GET /city?n=Tel%20Aviv (127.0.0.1) 339.40ms
+2022-06-12 10:37:37,449 Queried city: Tel Aviv - 83.53 - 4.12 - 67 - few clouds - https://openweathermap.org/img/wn/02d.png - 0.139
+2022-06-12 10:37:37,614 200 GET /city?n=Tel%20Aviv (127.0.0.1) 304.67ms
+2022-06-12 10:54:21,087 Queried city: Tel Aviv - 84.72 - 4.12 - 61 - few clouds - https://openweathermap.org/img/wn/02d.png - 0.153
+2022-06-12 10:54:21,256 200 GET /city?n=Tel%20Aviv (127.0.0.1) 323.23ms
+2022-06-12 11:07:02,450 Queried city: Boston - 58.42 - 2.06 - 81 - few clouds - https://openweathermap.org/img/wn/02n.png - 0.151
+2022-06-12 11:07:02,626 200 GET /city?n=Boston (127.0.0.1) 329.11ms
+2022-06-12 11:07:02,678 200 GET /static/style.css?v=0231578549f24851e4ad6b3e25f25d484b2404488a37ac06c84ceb821a5640d44800e82a48c4fe960a453cd6f2e3f14090e665e365eb13f17f1acb701467e882 (127.0.0.1) 16.02ms
